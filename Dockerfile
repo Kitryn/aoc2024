@@ -24,7 +24,7 @@ if [ ! -f /input/$INPUT_FILE ]; then\n\
     exit 1\n\
 fi\n\
 \n\
-nix-instantiate --show-trace --extra-experimental-features pipe-operators --eval --expr "$(cat /input/$1)" --argstr inputFile "/input/$INPUT_FILE"\n' > /app/entrypoint.sh
+nix-instantiate --show-trace --extra-experimental-features pipe-operators --eval "/input/$1" --argstr inputFile "/input/$INPUT_FILE"\n' > /app/entrypoint.sh
 
 # Make the entrypoint script executable
 RUN chmod +x /app/entrypoint.sh
